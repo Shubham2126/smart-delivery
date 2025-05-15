@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smart Delivery System
 
-## Getting Started
+## Project Description
 
-First, run the development server:
+The Smart Delivery System is a web-based application designed to streamline the process of managing delivery orders, assigning partners, and tracking order statuses. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Partner Registration**: Register and manage delivery partners with shift timings and availability.
+- **Order Management**: Create, update, and track delivery orders.
+- **Assignment System**: Automatically assign orders to available partners based on their shift and workload.
+- **Dashboard**: View key metrics, active orders, partner availability, and recent assignments.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Prerequisites
 
-## Learn More
+To run this application, ensure you have the following installed:
 
-To learn more about Next.js, take a look at the following resources:
+- Node.js (v16 or higher)
+- npm (v7 or higher)
+- MongoDB (running locally or accessible via a connection string)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Installation Steps
 
-## Deploy on Vercel
+1. Clone the repository:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   git clone https://github.com/your-repo/smart-delivery.git
+   cd smart-delivery
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables:
+   Create a `.env` file in the root directory and add the following:
+
+   ```env
+   MONGO_URI=your_mongodb_connection_string
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open the application in your browser:
+   Navigate to `http://localhost:3000`.
+
+
+---
+
+## Folder Structure
+
+- `src/app`: Contains the main application pages and API routes.
+- `src/models`: Mongoose models for database entities.
+- `src/types`: TypeScript type definitions.
+- `src/database`: Database connection logic.
+
+---
+
+
