@@ -19,7 +19,6 @@ export async function POST(req: NextRequest) {
 
     const partners = await Partner.find({
       status: "active",
-      currentLoad: { $lt: 3 },
     });
 
     const nowMinutes = new Date().getHours() * 60 + new Date().getMinutes();
@@ -29,7 +28,9 @@ export async function POST(req: NextRequest) {
         const [hours, minutes] = t.split(":").map(Number);
         return hours * 60 + minutes;
       });
-      return nowMinutes >= start && nowMinutes <= end;
+      const withinShift = nowMinutes >= start && nowMinutes <= end;
+      const canTakeOrder = p.currentLoad + order.items.length <= 3;
+      return withinShift && canTakeOrder;
     });
     if (available.length === 0) {
       await Assignment.create({
@@ -57,7 +58,7 @@ export async function POST(req: NextRequest) {
       orderId: order._id,
       partnerId: partner._id,
       status: "success",
-      reason: "Partner has been Assigned"
+      reason: "Partner has been Assigned",
     });
 
     return NextResponse.json({
